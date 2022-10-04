@@ -20,13 +20,13 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
 
     ```python
     """
-            5
+              5
             /    \
-        11     3
-        /\     /\
-        4 8    9 12
-                /\
-            6 15
+            11     3
+            /\     /\
+            4 8    9 12
+                    /\
+                   6 15
 
     add the nodes as long as there are children
     when the leaf node is hit, remove to explore another path
@@ -92,21 +92,20 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     ```python
     def get_path_from_root(root, target):
         def tree_includes(root, target, path):
-    				"""
+    		"""
             performing dfs to find whether target node exists in the tree
-    				check if the target is the root or if it exists in the left subtree or right
-    				subtree
+    		check if the target is the root or if it exists in the left subtree or right subtree
             """
-    						if root is None:
-    						            return False
-    				
-    						path.append(root)
-    						if root.data == target 
-    						or tree_includes(root.left, target, path) 
-    						or tree_includes(root.right, target, path):
-    		          return True
-    	          path.pop()
-    	          return False
+            if root is None:
+                        return False
+    
+            path.append(root)
+            if root.data == target 
+            or tree_includes(root.left, target, path) 
+            or tree_includes(root.right, target, path):
+                return True
+            path.pop()
+            return False
         path = []
         tree_includes(root, target, path)
         return path
@@ -282,9 +281,9 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     				for a tree 
     								 1
     								/ \
-    							 2   3
-    	                 /\
-    						       6 7
+    							   2   3
+    	                            / \
+    						       6   7
     				iteration 1:
     				root  1
     				path  1
