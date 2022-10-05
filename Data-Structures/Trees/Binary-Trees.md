@@ -433,22 +433,25 @@ It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     
     ```python
     def lowest_common_ancestor(root, node_1, node_2):
-    		"""
-    		we have 3 scenarios that could occur:
-    		1- of the nodes is the root ie: an ancestor of the other and itself => 
-    				return the node
-    		2- both nodes belong to the same sub-tree
-    		3- each node belongs to a subtree
-    		If I am a root and I found one of the nodes to my right and one of the nodes
-    		to my left => I am the common ancestor
-    		If I found one to my left but did not find any to my right or vice versa
-    		=> I am an ancestor but not the least common one.
-    		time complexity -> O(n) where n is nb of nodes
-            space complexity -> O(h) where h is height of tree (stack call) when tree is skewed
+        """
+        we have 3 scenarios that could occur:
+        1- of the nodes is the root ie: an ancestor of the other and itself 
+            => return the node
+        2- both nodes belong to the same sub-tree
+        3- each node belongs to a subtree
+        If I am a root and I found one of the nodes to my right and one of the nodes
+        to my left 
+            => I am the common ancestor
+        If I found one to my left but did not find any to my right or vice versa 
+            => I am an ancestor but not the least common one.
 
-            case where one node is the parent of the other -> return that node
-            case when they are in different subtrees
-    		"""
+        time complexity -> O(n) where n is nb of nodes
+        space complexity -> O(h) where h is height of tree (stack call) 
+        when tree is skewed
+
+        case where one node is the parent of the other -> return that node
+        case when they are in different subtrees
+        """
         if root is None:
             return None
         if root.data == node_1.data or root.data == node_2.data:
@@ -504,11 +507,9 @@ It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     
     ```python
     def check_symmetric_tree(root):
-    	
     	"""
         given a binary tree, check if its a mirror of itself 
         (symmetric around its center).
-        
         """
         def validate_symmetric(left, right):
             # check if either is null => we need them to both be null
@@ -559,13 +560,13 @@ It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
 
     ```python
         def evaluate_tree(root):
-        """
-        all the integer values would appear at the leaf nodes, 
-        while the interior nodes represent the operators.
+            """
+            all the integer values would appear at the leaf nodes, 
+            while the interior nodes represent the operators.
 
-        Therefore we can do inorder traversal of the binary tree 
-        and evaluate the expression as we move ahead.
-        """
+            Therefore we can do inorder traversal of the binary tree 
+            and evaluate the expression as we move ahead.
+            """
             # empty tree
             if root is None:
                 return 0
