@@ -1,3 +1,5 @@
+# Here are some problems covering Binary Trees
+
 **They are usually solved using recursion**
 
 **The stopping condition is usually an empty node** 
@@ -13,7 +15,7 @@ We need to realize that the subtrees are also considered trees and the same func
 
 For example, to find the sum of a binary tree given the root 5:
 
-it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtree rooted at 3
+It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtree rooted at 3
 ![Binary Tree Image](https://github.com/faa-99/Practicing-Interview-Questions/blob/main/Data-Structures/assets/binary-tree.png)
 
 - Depth first traversal of a binary tree
@@ -47,10 +49,14 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     
     ```python
     def invert_binary_tree(root):
-    """
-    An inverted form of a Binary Tree is another Binary Tree with left and right children of all non-leaf nodes interchanged. You may also call it the mirror of the input tree.
-    The root’s left pointer started pointing towards the right child and the right pointer towards the left child and a similar condition is noticed for all the sub root nodes.
-    """
+        """
+        An inverted form of a Binary Tree is another Binary Tree with left 
+        and right children of all non-leaf nodes interchanged. 
+        You may also call it the mirror of the input tree.
+        The root’s left pointer started pointing towards the right child 
+        and the right pointer towards the left child 
+        and a similar condition is noticed for all the sub root nodes.
+        """
         if root is None:
             return root
     
@@ -66,16 +72,16 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     
     ```python
     def merge_trees(root1, root2):
-    		"""
-    		Merge them by summing up their node values
-    
-    		Time complexity : O(n) 
-    		A total of n nodes need to be traversed. Here, n represents the minimum 
-    		number of nodes from the two given trees.
-    		Auxiliary Space : O(n) 
-    		The depth of the recursion tree can go upto n in case of a skewed tree. 
-    		In average case, depth will be O(logn).
-    		"""
+        """
+        Merge them by summing up their node values
+
+        Time complexity : O(n) 
+        A total of n nodes need to be traversed. Here, n represents the minimum 
+        number of nodes from the two given trees.
+        Auxiliary Space : O(n) 
+        The depth of the recursion tree can go upto n in case of a skewed tree. 
+        In average case, depth will be O(logn).
+        """
         if not root1:
             return root2
         if not root2: 
@@ -146,11 +152,12 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
 - Sum of all nodes in binary tree
     
     ```python
-    """
-    the root + sum of the left subtree + sum of the right subtree
-    base case is when we reach a null node which returns a value of 0
-    """
+    
     def tree_sum(root):
+        """
+        the root + sum of the left subtree + sum of the right subtree
+        base case is when we reach a null node which returns a value of 0
+        """
         if root is None:
             return 0
     
@@ -161,35 +168,35 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     
     ```python
     def tree_path_sums(root):
-    		def sum_root_to_leaf(root, value, sums):
-    		"""
-    			for a tree 
-                     1
+        def sum_root_to_leaf(root, value, sums):
+            """
+                for a tree 
+                    1
                     / \
                     2   3
-                   /\   /\
-    			  4  5  6 7
-    					   \
-    						8
-    		we give it the value of the root at each level
-    								      1
-    								/           \
-    							  1+2          1+3
-                                  /\            /\
-    					      1+2+4 1+2+5       6 7
-    											  \
-    												8
+                /\   /\
+                4  5  6 7
+                        \
+                            8
+            we give it the value of the root at each level
+                                        1
+                                    /           \
+                                1+2          1+3
+                                /\            /\
+                            1+2+4 1+2+5       6 7
+                                                \
+                                                    8
     
-    		"""
-        if root is None:
-            return 0
-    		# val = (val*10 + root.data)
-        value += root.data
-        if root.left is None and root.right is None:
-            sums.append(value)
-        sum_root_to_leaf(root.left, value, sums)
-        sum_root_to_leaf(root.right, value, sums)
-        return sums
+            """
+            if root is None:
+                return 0
+                # val = (val*10 + root.data)
+            value += root.data
+            if root.left is None and root.right is None:
+                sums.append(value)
+            sum_root_to_leaf(root.left, value, sums)
+            sum_root_to_leaf(root.right, value, sums)
+            return sums
     
         value = 0
         sums = []
@@ -238,7 +245,7 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     def print_k_sum_paths(root, k):
     	# print all paths starting from the root that sum to k
     	def find_paths(root, k, path_sum, path, paths):
-    	"""
+    	    """
     		For this problem, preorder traversal is best suited as we have to add up a 
     		key value as we land on that node.
     
@@ -436,11 +443,11 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     		to my left => I am the common ancestor
     		If I found one to my left but did not find any to my right or vice versa
     		=> I am an ancestor but not the least common one.
-    		# time complexity -> O(n) where n is nb of nodes
-        # space complexity -> O(h) where h is height of tree (stack call) when tree 
-    		# is skewed
-        # case where one node is the parent of the other -> return that node
-        # case when they are in different subtrees
+    		time complexity -> O(n) where n is nb of nodes
+            space complexity -> O(h) where h is height of tree (stack call) when tree is skewed
+
+            case where one node is the parent of the other -> return that node
+            case when they are in different subtrees
     		"""
         if root is None:
             return None
@@ -461,15 +468,18 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
 - Find if a tree is balanced or not (left and right subtrees of every node differ in height by no more than 1)
     
     ```python
-    """
-    for each of the nodes, I can check the height of the left subtree and right subtree and compare them together.
-    this would result in O(n^2)
-    unneccesaarily calculate the height over and over again
     
-    Optimized approach:
-    all what we care about is the height of the node that we are sitting at and whether its left and right subtrees are balanced.
-    """
     def check_balanced_tree(root):
+        """
+        for each of the nodes, I can check the height of the left subtree 
+        and right subtree and compare them together.
+        this would result in O(n^2)
+        unneccesaarily calculate the height over and over again
+        
+        Optimized approach:
+        all what we care about is the height of the node that we are sitting at 
+        and whether its left and right subtrees are balanced.
+        """
         def get_height(root):
             if root is None:
                 return 0
@@ -496,10 +506,10 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     def check_symmetric_tree(root):
     	
     	"""
-    		given a binary tree, check if its a mirror of itself (symmetric around its
-    		center).
-    		
-    		"""
+        given a binary tree, check if its a mirror of itself 
+        (symmetric around its center).
+        
+        """
         def validate_symmetric(left, right):
             # check if either is null => we need them to both be null
             if left is None or right is None:
@@ -507,9 +517,8 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
             # check if they have equal values
             if left.data != right.data:
                 return False
-            return validate_symmetric(left.left, right.right) and validate_symmetric(
-                left.right, right.left
-            )
+            return validate_symmetric(left.left, right.right) 
+                   and validate_symmetric(left.right, right.left)
     		# a null tree
         if root is None:
             return True
@@ -551,17 +560,17 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     ```python
         def evaluate_tree(root):
         """
-        all the integer values would appear at the leaf nodes, while the interior nodes 
-        represent the operators.
+        all the integer values would appear at the leaf nodes, 
+        while the interior nodes represent the operators.
 
-        Therefore we can do inorder traversal of the binary tree and evaluate the expression 
-        as we move ahead.
+        Therefore we can do inorder traversal of the binary tree 
+        and evaluate the expression as we move ahead.
         """
-                # empty tree
+            # empty tree
             if root is None:
                 return 0
 
-                # leaf node
+            # leaf node
             if root.left is None and root.right is None:
                 return int(root.data)
         
@@ -589,9 +598,12 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
 
     ```python
     def left_view_tree(root):
-        # print the left view of a binary tree
-        # first node of each level and keep track of each level
-        # whenever I see a node whose level is > level so far, print it -> go left then right
+        """
+        print the left view of a binary tree
+        first node of each level and keep track of each level
+        whenever I see a node whose level is > level so far,
+        print it -> go left then right
+        """
         if root is None:
             return
         queue = [root]
@@ -610,9 +622,12 @@ it is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
         return result
 
     def right_view_tree(root):
-        # print the right view of a binary tree
-        # last node of each level and keep track of each level
-        # whenever I see a node whose level is > level so far, print it -> go left then right
+        """
+        print the right view of a binary tree
+        last node of each level and keep track of each level
+        whenever I see a node whose level is > level so far,
+        print it -> go left then right
+        """
         if root is None:
             return
         queue = [root]
