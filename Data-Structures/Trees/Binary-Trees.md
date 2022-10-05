@@ -98,10 +98,10 @@ It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     ```python
     def get_path_from_root(root, target):
         def tree_includes(root, target, path):
-    		"""
-            performing dfs to find whether target node exists in the tree
-    		check if the target is the root or if it exists in the left subtree or right subtree
-            """
+        """
+        performing dfs to find whether target node exists in the tree
+        check if the target is the root or if it exists in the left subtree or right subtree
+        """
             if root is None:
                         return False
     
@@ -121,10 +121,9 @@ It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     
     ```python
     def kth_ancestor(root, val, k):
-    		"""
-    		Get the path from the root to the target node and return the kth ancestor
-    
-    		"""
+        """
+        Get the path from the root to the target node and return the kth ancestor
+        """
         path = get_path_from_root(root, val)
         # ancestor does not exist
         if k >= len(path):
@@ -169,25 +168,26 @@ It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     ```python
     def tree_path_sums(root):
         def sum_root_to_leaf(root, value, sums):
-            """
-                for a tree 
-                    1
-                    / \
-                    2   3
-                /\   /\
-                4  5  6 7
-                        \
-                            8
-            we give it the value of the root at each level
-                                        1
-                                    /           \
-                                1+2          1+3
-                                /\            /\
-                            1+2+4 1+2+5       6 7
-                                                \
-                                                    8
-    
-            """
+        """
+            for a tree 
+                1
+               / \
+              2   3
+             /\   /\
+            4  5  6 7
+                    \
+                     8
+        we give it the value of the root at each level
+
+                                    1
+                                /        \
+                            1+2          1+3
+                            /\            /\
+                        1+2+4 1+2+5       6 7
+                                            \
+                                             8
+
+        """
             if root is None:
                 return 0
                 # val = (val*10 + root.data)
@@ -245,19 +245,19 @@ It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     def print_k_sum_paths(root, k):
     	# print all paths starting from the root that sum to k
     	def find_paths(root, k, path_sum, path, paths):
-    	    """
-    		For this problem, preorder traversal is best suited as we have to add up a 
-    		key value as we land on that node.
-    
-    		We start from the root and start traversing by preorder traversal, adding key
-    		value to the path_sum and checking whether it is equal to the required sum. 
-    
-    		Also, as tree node doesn’t have a pointer pointing to its parent, we have to 
-    		explicitly save from where we have moved. We use a path to store the 
-    		path for this.
-    
-    		Every node in this path contributes to the path_sum.
-    		"""
+        """
+        For this problem, preorder traversal is best suited as we have to add up a 
+        key value as we land on that node.
+
+        We start from the root and start traversing by preorder traversal, adding key
+        value to the path_sum and checking whether it is equal to the required sum. 
+
+        Also, as tree node doesn’t have a pointer pointing to its parent, we have to 
+        explicitly save from where we have moved. We use a path to store the 
+        path for this.
+
+        Every node in this path contributes to the path_sum.
+        """
     		if root is None:
     			return
     
