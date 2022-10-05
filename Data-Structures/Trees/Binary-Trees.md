@@ -210,20 +210,20 @@ It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
         # print all paths that sum to k
         # keep track of nodes in each path and sum
         def find_paths(root, k, path_sum, path, paths):
-    		"""
-    		For this problem, preorder traversal is best suited as we have to add up a 
-    		key value as we land on that node.
-    
-    		We start from the root and start traversing by preorder traversal, adding key
-    		value to the path_sum and checking whether it is equal to the required sum when
-    		a leaf node is reached. 
-    
-    		Also, as tree node doesn’t have a pointer pointing to its parent, we have to 
-    		explicitly save from where we have moved. We use a path to store the 
-    		path for this.
-    
-    		Every node in this path contributes to the path_sum.
-    		"""
+        """
+        For this problem, preorder traversal is best suited as we have to add up a 
+        key value as we land on that node.
+
+        We start from the root and start traversing by preorder traversal, adding key
+        value to the path_sum and checking whether it is equal to the required sum when
+        a leaf node is reached. 
+
+        Also, as tree node doesn’t have a pointer pointing to its parent, we have to 
+        explicitly save from where we have moved. We use a path to store the 
+        path for this.
+
+        Every node in this path contributes to the path_sum.
+        """
             if root is None:
                 return
             path_sum += root.data
@@ -236,7 +236,7 @@ It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
             find_paths(root.left, k, path_sum, [] + path, paths)
             find_paths(root.right, k, path_sum, [] + path, paths)
             return paths
-    	    return find_paths(root, k, 0, [], [])
+    	return find_paths(root, k, 0, [], [])
     ```
     
 - Fina all paths **from root** with a target sum
@@ -245,29 +245,29 @@ It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     def print_k_sum_paths(root, k):
     	# print all paths starting from the root that sum to k
     	def find_paths(root, k, path_sum, path, paths):
-        """
-        For this problem, preorder traversal is best suited as we have to add up a 
-        key value as we land on that node.
+            """
+            For this problem, preorder traversal is best suited as we have to add up a 
+            key value as we land on that node.
 
-        We start from the root and start traversing by preorder traversal, adding key
-        value to the path_sum and checking whether it is equal to the required sum. 
+            We start from the root and start traversing by preorder traversal, adding key
+            value to the path_sum and checking whether it is equal to the required sum. 
 
-        Also, as tree node doesn’t have a pointer pointing to its parent, we have to 
-        explicitly save from where we have moved. We use a path to store the 
-        path for this.
+            Also, as tree node doesn’t have a pointer pointing to its parent, we have to 
+            explicitly save from where we have moved. We use a path to store the 
+            path for this.
 
-        Every node in this path contributes to the path_sum.
-        """
-    		if root is None:
-    			return
-    
-    		path.append(root.data)
-    		path_sum += root.data
-    		
-    		if path_sum == k:
+            Every node in this path contributes to the path_sum.
+            """
+            if root is None:
+                return
+
+            path.append(root.data)
+            path_sum += root.data
+            
+            if path_sum == k:
                 paths.append(path)
                 return
-    
+
             find_paths(root.left, k, path_sum, [] + path, paths)
             find_paths(root.right, k, path_sum, [] + path, paths)
             path.pop()
