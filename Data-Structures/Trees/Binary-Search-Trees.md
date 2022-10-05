@@ -19,7 +19,7 @@
             return valid(root.left, min_value, root.data) and
                     valid(root.right, root.data, max_value)
 
-    	return valid(root, float("-inf"), float("inf")) 
+        return valid(root, float("-inf"), float("inf")) 
     ```
     
 - Convert a binary search tree to an ordered doubly linked list
@@ -34,15 +34,15 @@
         
         the in-order traversal of a bst will return it in ascending order (left, root, right)
         """
-    	if root is None:
-    		return
-    	convert_bst_to_dll(root.left)
-    	if prev is None:
-    		head = root
-    	# for every node, we need to assign the previous value and the next value
-    	else:
-    		root.left = prev
-    		prev.right = root
+        if root is None:
+            return
+        convert_bst_to_dll(root.left)
+        if prev is None:
+            head = root
+        # for every node, we need to assign the previous value and the next value
+        else:
+            root.left = prev
+            prev.right = root
         prev = root
         convert_bst_to_dll(root.right)
     	
@@ -52,24 +52,24 @@
     
     ```python
     def kth_smallest_element_in_bst(root, k):
-    	"""
+        """
         in-order traversal of bst returns it in ascending order
         """
-    		count = 0
-    		stack = []
-    		current = root
-    		 while True:
-    	        if current is not None:
-    	            stack.append(current)
-    	            current = root.left
-    	        elif stack:
-    	            current = stack.pop()
-    	            count += 1
-    							if count == k:
-    									return current.data
-    	            current = current.right
-    	        else:
-    	            break
+        count = 0
+        stack = []
+        current = root
+            while True:
+                if current is not None:
+                    stack.append(current)
+                    current = root.left
+                elif stack:
+                    current = stack.pop()
+                    count += 1
+                    if count == k:
+                        return current.data
+                    current = current.right
+                else:
+                    break
     ```
     
 - Find a node in a binary search tree whose value is closest to a number k
