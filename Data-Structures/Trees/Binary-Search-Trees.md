@@ -76,24 +76,24 @@
     
     ```python
     def closest_value(root, k):
-    		current = root
-    		min_value = float("Inf")
-    		closest_node = root.data
-    		while current is not None:
-    				# get the difference between the current and the target
-    				difference = abs(current.data - k)
-    				# check if the difference is the minimum difference
-    				if difference <= min_value:
-    					min_value = difference
-    					closest_node = current.data
-    				# check whether to look in right subtree or left subtree
-    				if k < current.data:
-    					# look in left subtree
-    					current = current.left
-    				elif k > current.data:
-    					# look in right subtree
-    					current = current.right
-    		return min_value		
+        current = root
+        min_value = float("Inf")
+        closest_node = root.data
+        while current is not None:
+            # get the difference between the current and the target
+            difference = abs(current.data - k)
+            # check if the difference is the minimum difference
+            if difference <= min_value:
+                min_value = difference
+                closest_node = current.data
+            # check whether to look in right subtree or left subtree
+            if k < current.data:
+                # look in left subtree
+                current = current.left
+            elif k > current.data:
+                # look in right subtree
+                current = current.right
+        return min_value		
     ```
 
 - Convert to greater tree
