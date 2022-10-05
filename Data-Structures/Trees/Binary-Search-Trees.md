@@ -58,18 +58,18 @@
         count = 0
         stack = []
         current = root
-            while True:
-                if current is not None:
-                    stack.append(current)
-                    current = root.left
-                elif stack:
-                    current = stack.pop()
-                    count += 1
-                    if count == k:
-                        return current.data
-                    current = current.right
-                else:
-                    break
+        while True:
+            if current is not None:
+                stack.append(current)
+                current = root.left
+            elif stack:
+                current = stack.pop()
+                count += 1
+                if count == k:
+                    return current.data
+                current = current.right
+            else:
+                break
     ```
     
 - Find a node in a binary search tree whose value is closest to a number k
@@ -100,33 +100,33 @@
     
     ```python
     def convert_greater_tree(root):
-    	"""
-    	for every element => add the sum of nodes in the right subtree
-    	we can dfs the right subtree for every node => not very efficient since we will be 
-    	repeating ourselves
-    	
-    	Optimal way: in order traversal would be the left subtree, root, then right subtree
-    	we want the exact opposite
-    	to get the vale of each node => sum its right subtree
-    	we need to perform inorder traversal in reverse order
-    	at each step, get the right sum, add to root, then add them to left node
-    	keep track of the sum so far
-    	O(n) time and O(h) space
-    	"""
-    	def dfs(root, curr_sum):
-    		# perform reverse in order traversal
-    		if root is None:
-    			return
-    		dfs(root.right, curr_sum)
-    		temp = root.val
-    		root.val += curr_sum
-    		curr_sum += temp
-    		dfs(root.left) 
+        """
+        for every element => add the sum of nodes in the right subtree
+        we can dfs the right subtree for every node => not very efficient since we will be 
+        repeating ourselves
+        
+        Optimal way: in order traversal would be the left subtree, root, then right subtree
+        we want the exact opposite
+        to get the vale of each node => sum its right subtree
+        we need to perform inorder traversal in reverse order
+        at each step, get the right sum, add to root, then add them to left node
+        keep track of the sum so far
+        O(n) time and O(h) space
+        """
+        def dfs(root, curr_sum):
+            # perform reverse in order traversal
+            if root is None:
+                return
+            dfs(root.right, curr_sum)
+            temp = root.val
+            root.val += curr_sum
+            curr_sum += temp
+            dfs(root.left) 
     
-    		return root
+            return root
     
-    	dfs(root, 0)
-    	return root
+        dfs(root, 0)
+        return root
     ```
 - Find a pair with a given sum in Binary search tree
 - Search for an element
