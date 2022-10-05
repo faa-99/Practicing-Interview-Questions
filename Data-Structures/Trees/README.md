@@ -1,4 +1,6 @@
-T**hey provide a means to store data hierarchically**. 
+# Trees 
+
+**They provide a means to store data hierarchically**. 
 
 Used for searching and sorting
 
