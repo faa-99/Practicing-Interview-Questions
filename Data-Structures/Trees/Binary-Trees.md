@@ -236,7 +236,7 @@ It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
             find_paths(root.left, k, path_sum, [] + path, paths)
             find_paths(root.right, k, path_sum, [] + path, paths)
             return paths
-    	return find_paths(root, k, 0, [], [])
+        return find_paths(root, k, 0, [], [])
     ```
     
 - Fina all paths **from root** with a target sum
