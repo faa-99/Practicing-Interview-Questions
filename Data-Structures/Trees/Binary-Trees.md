@@ -285,26 +285,25 @@ It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
         # keep track of nodes in each path and sum
         def find_paths(root, k, path, paths):
             """
-    				for a tree 
-    								 1
-    								/ \
-    							   2   3
-    	                            / \
-    						       6   7
-    				iteration 1:
-    				root  1
-    				path  1
-    				iteration 2:
-    				root  2
-    				path  1, 2
-    				iterations 3 and 4: root is NULL so return to the previous call and pass the
-    														right child of 2 which is also NULL
-    				root  NULL
-    				path  1, 2
-    				execution for root 2 is resumed, we take a variable path sum initialized to
-    				zero and start summing
-    				remove 2 from the path and resume execution for node 1 taking the right
-    				child
+            for a tree 
+                             1
+                            / \
+                           2   3
+                              / \
+                             6   7
+            iteration 1:
+            root  1
+            path  1
+            iteration 2:
+            root  2
+            path  1, 2
+            iterations 3 and 4: root is NULL so return to the previous call and pass the
+            right child of 2 which is also NULL
+            root  NULL
+            path  1, 2
+            execution for root 2 is resumed, we take a variable path sum initialized to
+            zero and start summing
+            remove 2 from the path and resume execution for node 1 taking the right child
             """
             if root is None:
                 return
@@ -382,11 +381,11 @@ It is 5 + the sum of the left subtree rooted at 11 + the sum of the right subtre
     
     ```python
     def nodes_distance_k(root, start_node, k):
-    		"""
-    		the idea is to get the number of nodes that are k edges away from our start node
-    		we can view the tree as a graph and perform depth first search to get the 
-    		nodes that are k edges away
-    		"""
+        """
+        the idea is to get the number of nodes that are k edges away from our start node
+        we can view the tree as a graph and perform depth first search to get the 
+        nodes that are k edges away
+        """
         # need to find all nodes at distance k from a start node
         # nb of edges is k
         nodes = []
